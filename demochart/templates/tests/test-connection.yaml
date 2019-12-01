@@ -1,3 +1,7 @@
+
+{{define "defaultmessage"}}
+  "hello from" -  {{template "demochart.fullname" .}}
+{{end}}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -19,5 +23,5 @@ spec:
         - name: SLACK_CHANNEL
           value: {{.Values.Slack.SLACK_CHANNEL}}
         name: j1
-        args: ["--msg", "hello world"]
+        args: ["--msg", {{ default (include "defaultmessage" .) .Values.Slack.SLACK_MSG | quote }}]
       restartPolicy: Never
