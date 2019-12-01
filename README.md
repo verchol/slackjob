@@ -11,7 +11,8 @@ In this repo there is a simple implementation of slack notify component that rec
  In ./demochart/template/test there is a definition of job , it uses already build verchol/slackjob public images built from 
  this repo (see below)
  
- to execute the demo 
+ #Run Example
+ 
  ```
  git clone https://github.com/verchol/slackjob.git && cd ./slackjob
  
@@ -19,7 +20,7 @@ In this repo there is a simple implementation of slack notify component that rec
  
  ```
  
- 
+ # Job manfiest 
  ```
 {{define "defaultmessage"}}
   "hello from" -  {{template "demochart.fullname" .}}
