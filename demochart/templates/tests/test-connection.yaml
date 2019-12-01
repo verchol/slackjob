@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ include "demochart.fullname" . }}-{{ uuidv4 }}-job"
+  annotations:
+    "helm.sh/hook": "post-install, post-upgrade"
+    "helm.sh/hook-delete-policy": "hook-failed, hook-succeded" 
+ 
+spec:
+  backoffLimit: 6
+  completions: 1
+  parallelism: 1
+  template:
+    spec:
+      containers:
+      - image: verchol/slackjob
+        imagePullPolicy: Always
+        env:
+        - name: SLACK_CHANNEL
+          value: {{.Values.Slack.SLACK_CHANNEL}}
+        name: j1
+        args: ["--msg", "hello world"]
+      restartPolicy: Never
