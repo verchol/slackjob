@@ -1,7 +1,9 @@
 # Helm3 hooks example that sends slack message on post-install and post-upgrade hooks
 
 Example of how to use Helm3 hookst to execte customer job 
-In our case it's a simple slack hook but it can be Codefresh  pipleine or anything else.
+In our case it's a simple slack hook but it can be Codefresh pipleine or anything else.
+In addition you can see  example of running [Codefresh Pipeline](https://github.com/verchol/kubecon2019/) 
+
 
 In this repo there is a simple implementation of slack notify component that recieves arguments of 
  SLACK_CHANNEL - env variable full url for shared channel to send a messgage
