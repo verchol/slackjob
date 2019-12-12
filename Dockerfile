@@ -13,5 +13,5 @@ COPY --from=BUILD /src/bin /src/bin
 RUN ls /src/bin
 RUN chmod 777 /src/bin/slackjob
 #ENV PATH = $PATH:/helm/bin
-RUN mkdir /test && date>/test/date.now
+R1UN mkdir /test && date>/test/date.now
 ENTRYPOINT   ["/src/bin/slackjob"]
